@@ -15,8 +15,8 @@ async def handle_message(chat_id, message):
             'username': 'User',
             'phone': str(chat_id),
             'balance': 0,
-            'status': 'Серебряная',
-            'stamp': '0',
+            'status': 'Серебряная ⚪️',
+            'stamp': '',
             'bday': bday
         }
         await insert_user(user_data)
@@ -34,14 +34,14 @@ async def handle_message(chat_id, message):
         else:
             user = user[0]
             await send_image(chat_id,
-                             f"Вы уже зарегистрированы.\nВаша карта:\n\nСтатус: {user['status']}\nБаланс: {user['balance']} Б\nШтампы: {user['stamp']}\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.", 
+                             f"Вы уже зарегистрированы.\nВаша карта:\n\nСтатус: {user['status']}\nБаланс: {user['balance']} Б\nШтампы:\n{user['stamp']}\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.", 
                              image_url="https://i.postimg.cc/MprwdCcK/photo.jpg")
         
     elif message.lower() == "моя карта":     
         if user:
             user = user[0]
             await send_image(chat_id, 
-                       caption=f"Ваша карта:\n\nСтатус: {user['status']}\nБаланс: {user['balance']} Б\nШтампы: {user['stamp']}\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.",
+                       caption=f"Ваша карта:\n\nСтатус: {user['status']}\nБаланс: {user['balance']} Б\nШтампы:\n{user['stamp']}\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.",
                        image_url="https://i.postimg.cc/MprwdCcK/photo.jpg"
                        )
             pass
