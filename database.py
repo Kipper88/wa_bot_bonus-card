@@ -2,7 +2,7 @@ import asyncio
 import asyncpg
 from asyncio import WindowsSelectorEventLoopPolicy
 
-asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
+#asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
 
 class Database:
     def __init__(self, name, password, host, user):
