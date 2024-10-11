@@ -1,0 +1,2 @@
+class StateUser():
+    birthday = {}
