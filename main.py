@@ -27,4 +27,4 @@ async def checker_state():
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.create_task(checker_state())
-    app.run(debug=True)
+    app.run(port=9224)
