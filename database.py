@@ -1,6 +1,6 @@
 import asyncio
 import asyncpg
-from asyncio import WindowsSelectorEventLoopPolicy
+#from asyncio import WindowsSelectorEventLoopPolicy
 
 #asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
 
