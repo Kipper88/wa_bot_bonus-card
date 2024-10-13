@@ -22,7 +22,7 @@ async def handle_message(chat_id, message):
         await insert_user(user_data)
         await send_image(chat_id, 
                         image_url="https://i.postimg.cc/MprwdCcK/photo.jpg", 
-                        caption="Вы успешно зарегистрированы.\nВаша карта:\n\nСтатус: Серебряный\nБаланс: 0 Б\nШтампы:\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.")
+                        caption="Вы успешно зарегистрированы.\nВаша карта:\n\nСтатус: Серебряная ⚪️\nБаланс: 0 Б\nШтампы:\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.")
         del StateUser.birthday[chat_id]
         
     elif message.lower() == "зарегистрироваться":
