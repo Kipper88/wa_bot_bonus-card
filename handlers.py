@@ -6,7 +6,7 @@ from time import time
 async def handle_message(chat_id, message):
     user = await check_user(chat_id)
     
-    birthday_pattern = r'^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(\d{4})$'    
+    birthday_pattern = r'^((?:0[0-9]|[1-2][0-9]|3[0-1])([. ]))((?:0[1-9]|1[0-2])([. ]))((?:19|20)\d{2})$'    
     
     if re.match(birthday_pattern, message) and chat_id in StateUser.birthday:
         bday = message            
