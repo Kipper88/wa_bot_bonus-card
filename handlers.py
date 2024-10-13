@@ -24,6 +24,7 @@ async def handle_message(chat_id, message):
                         image_url="https://i.postimg.cc/MprwdCcK/photo.jpg", 
                         caption="Вы успешно зарегистрированы.\nВаша карта:\n\nСтатус: Серебряная ⚪️\nБаланс: 0 Б\nШтампы:\n\nНапишите «Моя карта» без кавычек, чтобы обновить актуальные данные карты.")
         del StateUser.birthday[chat_id]
+        logging.info(f'Зарегистрирован юзер {chat_id}.')
         
     elif message.lower() == "зарегистрироваться":
         if not user:
@@ -31,6 +32,7 @@ async def handle_message(chat_id, message):
                 await send_message(chat_id=chat_id,
                                    message='Чтобы зарегистрироваться, пожалуйста, напишите свою дату рождения в формате ДД.ММ.ГГГГ\nПример: 10.01.1900')
                 StateUser.birthday[chat_id] = time()
+                logging.info(f'Юзер {chat_id} внесен в ожидание ввода даты рождения.')
         else:
             user = user[0]
             await send_image(chat_id,
