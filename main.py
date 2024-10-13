@@ -4,6 +4,15 @@ import time
 
 from handlers import handle_message
 from states import StateUser
+
+import logging
+
+logging.basicConfig(
+    filename='example.log',
+    filemode='a',
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.DEBUG
+)
     
 app = Flask(__name__)
 
@@ -15,12 +24,14 @@ async def webhook():
         chat_id = data['senderData']['chatId'].split('@')[0]
         text = data['messageData']['textMessageData']['textMessage']
         await handle_message(chat_id, text)
+        logging.info(f'Сообщение от {chat_id} успешно обработано')
+        
     return "OK", 200
 
 async def checker_state():
     while True:
         for i in StateUser.birthday:
-            if StateUser.birthday[i] < time.time - 10: # 15 мин
+            if StateUser.birthday[i] < time.time - 1800: # 30 мин
                 del StateUser.birthday[i]
         await asyncio.sleep(60)
 
