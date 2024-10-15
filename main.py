@@ -28,7 +28,7 @@ async def webhook():
             logging.info(f'Сообщение от {chat_id} успешно обработано')           
         return "OK", 200
     except Exception:
-        logging.error(f'Произошла ошибка при обработке сообщения от юзера {data['senderData']['chatId'].split('@')[0]}')
+        logging.error(f"Произошла ошибка при обработке сообщения от юзера {data['senderData']['chatId'].split('@')[0]}")
 
 async def checker_state():
     while True:
